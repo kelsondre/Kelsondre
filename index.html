@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscribe to Kelsondre</title>
+    <title>Kelsondre - Temporarily Down</title>
     <link rel="icon" href="https://yt3.googleusercontent.com/KWeSfzemtXQ6OejCwnx68UMlAbBsAuanFjrd4QjcuFyXOGVPgRPdbMG8x0afuHxuXPb3XodziQ=s160-c-k-c0x00ffffff-no-rj" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -50,6 +50,10 @@
             margin: 0 auto;
             padding: 2rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
         }
         
         .header {
@@ -66,8 +70,8 @@
         }
         
         .logo {
-            width: 60px;
-            height: 60px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             margin-right: 15px;
             object-fit: cover;
@@ -91,6 +95,22 @@
             margin-bottom: 1rem;
         }
         
+        .down-message {
+            font-size: 2rem;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            border-left: 5px solid #e94560;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
         .quote {
             font-size: 1.5rem;
             font-style: italic;
@@ -102,68 +122,6 @@
         @keyframes fadeInQuote {
             0% { opacity: 0; transform: translateX(-20px); }
             100% { opacity: 1; transform: translateX(0); }
-        }
-        
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            z-index: 1;
-            color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-subscribe {
-            background: linear-gradient(45deg, #e94560, #ff7b54);
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
         }
         
         .social-links {
@@ -197,18 +155,30 @@
             animation: fadeIn 2s ease-in-out;
         }
         
+        .countdown {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #ff7b54;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
+            }
+            
+            .down-message {
+                font-size: 1.5rem;
+                padding: 1rem;
             }
             
             .quote {
                 font-size: 1.2rem;
             }
             
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
+            .logo {
+                width: 70px;
+                height: 70px;
             }
         }
     </style>
@@ -216,30 +186,33 @@
 <body>
     <div class="page-transition"></div>
     
-    <div class="particles" id="particles-js"></div>
-    
     <div class="container">
         <div class="header">
             <img src="https://yt3.googleusercontent.com/KWeSfzemtXQ6OejCwnx68UMlAbBsAuanFjrd4QjcuFyXOGVPgRPdbMG8x0afuHxuXPb3XodziQ=s160-c-k-c0x00ffffff-no-rj" alt="Kelsondre Logo" class="logo">
-            <h1>Subscribe to Kelsondre</h1>
+            <h1>Kelsondre</h1>
         </div>
         
-        <p class="quote">"<i>PLZ SUB</i>"</p>
-        
-        <div class="buttons">
-            <a href="https://youtube.com/@kelsondre" target="_blank" class="btn btn-subscribe">Subscribe Now</a>
+        <div class="down-message">
+            We're unfortunately having issues right now.<br>
+            Please revisit at another time.
         </div>
         
-        <div class="social-links">
-            <a href="https://youtube.com/@kelsondre" target="_blank" class="social-icon">📺</a>
+        <div class="countdown" id="countdown">
+            <!-- Countdown will appear here -->
+        </div>
+        
+        <p class="quote">"Thank you for your patience and support!"</p>
+        
+       <div class="social-links">
+    </a>
+            <!-- Add more social links if needed -->
         </div>
     </div>
     
     <footer>
-        &copy; 2023 Kelsondre | All Rights Reserved
+        &copy; <span id="year"></span> Kelsondre | All Rights Reserved
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Page transition when loading
         document.addEventListener('DOMContentLoaded', function() {
@@ -247,126 +220,30 @@
                 document.querySelector('.page-transition').style.display = 'none';
             }, 1000);
             
-            // Particles.js configuration
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#e94560"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#e94560",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
             
-            // Add animation to buttons on hover
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', () => {
-                    button.style.transform = 'translateY(-5px)';
-                    button.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.3)';
-                });
+            // Countdown timer example (you can set your expected return time)
+            const countdownDate = new Date();
+            countdownDate.setDate(countdownDate.getDate() + 2); // 2 days from now as example
+            
+            const countdownFunction = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
                 
-                button.addEventListener('mouseleave', () => {
-                    button.style.transform = 'translateY(0)';
-                    button.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
-                });
-            });
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById("countdown").innerHTML = 
+                    `Expected return in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+                
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    document.getElementById("countdown").innerHTML = "We're working to be back online soon!";
+                }
+            }, 1000);
         });
         
         // Page transition when leaving or refreshing
